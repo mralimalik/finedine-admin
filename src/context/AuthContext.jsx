@@ -54,7 +54,7 @@ export const AuthContextProvider = ({ children }) => {
         console.log();
         
         if (location.pathname === "/login" || location.pathname === "/") {
-          navigate("/home");
+          navigate("/users");
         }
       }
     } catch (err) {
@@ -78,7 +78,7 @@ export const AuthContextProvider = ({ children }) => {
       if (response.status === 200) {
         const currentUserData = response.data;
         setUserDataLocal(currentUserData);
-        navigate("/home");
+        navigate("/users");
         toast.success("Logged In");
       }
     } catch (err) {

@@ -15,12 +15,12 @@ function App() {
           <UsersContextProvider>
             <Routes>
               {/* Public Routes */}
-              <Route path="/" element={<Navigate to="/home" />} />
+              <Route path="/" element={<Navigate to="/users" />} />
               <Route path="/login" element={<Login />} />
 
               {/* Protected Routes with Sidebar */}
               <Route path="/" element={<Layout />}>
-                <Route path="home" element={<Home />} />
+                {/* <Route path="home" element={<Home />} /> */}
                 <Route path="users" element={<Users />} />
                 <Route path="settings" element={<Settings />} />
               </Route>

@@ -13,6 +13,7 @@ const CreateUser = ({ onClose, editUser }) => {
     password: "",
     changeLogo: true,
     businessLogo: null,
+    companyName: "",
   });
   const [errors, setErrors] = useState({});
 
@@ -23,6 +24,7 @@ const CreateUser = ({ onClose, editUser }) => {
         password: "",
         changeLogo: editUser.changeLogo,
         businessLogo: editUser.businessLogo,
+        companyName: editUser.companyName ,
       });
     }
   }, [editUser]);
@@ -69,6 +71,7 @@ const CreateUser = ({ onClose, editUser }) => {
         await updateUserBusinessImage(
           editUser._id,
           formData.businessLogo,
+          formData.companyName,
           setLoading
         );
       } else {
@@ -77,6 +80,8 @@ const CreateUser = ({ onClose, editUser }) => {
           formData.password,
           formData.changeLogo,
           formData.businessLogo,
+          formData.companyName,
+
           setLoading
         );
       }
@@ -137,6 +142,14 @@ const CreateUser = ({ onClose, editUser }) => {
               error={errors.password}
             />
           )}
+          <ReuseTextField
+            label="Company Name"
+            type="companyName"
+            id="companyName"
+            value={formData.companyName}
+            onChange={handleChange}
+            error={errors.companyName}
+          />
 
           <ReuseImageContainer
             imageUrl={getImageUrl()}

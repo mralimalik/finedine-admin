@@ -45,7 +45,7 @@ const Users = () => {
             onClick={() => handleUserClick(user)}
           >
             <h2 className="text-xl font-semibold mb-2">
-              {`${user?.firstName || "Not Set"} ${user?.lastName}`}
+              {`${user?.firstName || "Name Not Set"} ${user?.lastName}`}
             </h2>
             <p className="text-gray-600 mb-2">{user?.email}</p>
             <p className="text-gray-600">Total Venues: {user?.venues?.length || 0}</p>

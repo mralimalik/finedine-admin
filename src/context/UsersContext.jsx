@@ -20,6 +20,7 @@ export const UsersContextProvider = ({ children }) => {
       });
       if (response.status === 200) {
         setUsers(response.data.data);
+        
       }
     } catch (error) {
       console.error("Error fetching users with venues", error);
@@ -28,7 +29,7 @@ export const UsersContextProvider = ({ children }) => {
     }
   };
 
-  const createUser = async (email, password, changeLogo, businessLogo, setLoading) => {
+  const createUser = async (email, password, changeLogo, businessLogo, companyName,setLoading) => {
     try {
       setLoading(true);
 
@@ -37,6 +38,8 @@ export const UsersContextProvider = ({ children }) => {
       formData.append("email", email);
       formData.append("password", password);
       formData.append("changeLogo", changeLogo);
+      formData.append("companyName", companyName);
+
       if (businessLogo) {
         formData.append("businessLogo", businessLogo);
       }
@@ -65,12 +68,13 @@ export const UsersContextProvider = ({ children }) => {
     }
   };
 
-  const updateUserBusinessImage = async (userId, businessLogo, setLoading) => {
+  const updateUserBusinessImage = async (userId, businessLogo, companyName ,setLoading) => {
     try {
       setLoading(true);
 
       const token = localStorage.getItem("Token");
       const formData = new FormData();
+      formData.append("companyName", companyName);
       if (businessLogo) {
         formData.append("businessLogo", businessLogo);
       }
